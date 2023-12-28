@@ -1,7 +1,14 @@
 package play.toys.api.brinquedo;
 
-public enum FaixaEtaria {
-    TRES_ANOS,
-    QUATRO_ANOS,
-    CINCO_ANOS;
+public class FaixaEtaria {
+    private Long id;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
