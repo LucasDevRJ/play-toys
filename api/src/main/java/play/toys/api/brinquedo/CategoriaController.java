@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoriaController {
 
     @PostMapping
-    public void cadastrarCategoria(@RequestBody DadosDaCategoria dados) {
-        System.out.println(dados);
+    public void cadastrarCategoria(@RequestBody Categoria categoria) {
+        System.out.println(categoria.getNome());
     }
 }
