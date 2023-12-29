@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Table(name = "brinquedos")
 @Entity(name = "Brinquedo")
@@ -27,7 +28,18 @@ public class Brinquedo {
     @OneToOne
     private Categoria categoria;
     @OneToMany
-    private Cor cor;
+    private List<Cor> cor;
     @OneToOne
     private FaixaEtaria faixaEtaria;
+
+    public Brinquedo(DadosDoBrinquedo dados) {
+        this.nome = dados.nome();
+        this.preco = dados.preco();
+        this.descricao = dados.descricao();
+        this.modelo = dados.modelo();
+        this.marca = dados.marca();
+        this.categoria = dados.categoria();
+        this.cor = (List<Cor>) dados.cor();
+        this.faixaEtaria = dados.faixaEtaria();
+    }
 }

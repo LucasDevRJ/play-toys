@@ -1,4 +1,7 @@
 package play.toys.api.brinquedo;
 
-public interface BrinquedoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BrinquedoRepository extends JpaRepository<Brinquedo, Long> {
+
 }
