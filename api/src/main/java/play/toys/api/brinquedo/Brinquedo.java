@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
-import java.util.List;
 
 @Table(name = "brinquedos")
 @Entity(name = "Brinquedo")
@@ -16,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Brinquedo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,14 +22,10 @@ public class Brinquedo {
     private BigDecimal preco;
     private String descricao;
     private String modelo;
-    @OneToOne
-    private Marca marca;
-    @OneToOne
-    private Categoria categoria;
-    @OneToMany
-    private List<Cor> cor;
-    @OneToOne
-    private FaixaEtaria faixaEtaria;
+    private String marca;
+    private String categoria;
+    private String cor;
+    private String faixaEtaria;
 
     public Brinquedo(DadosDoBrinquedo dados) {
         this.nome = dados.nome();
@@ -39,7 +34,7 @@ public class Brinquedo {
         this.modelo = dados.modelo();
         this.marca = dados.marca();
         this.categoria = dados.categoria();
-        this.cor = (List<Cor>) dados.cor();
+        this.cor = dados.cor();
         this.faixaEtaria = dados.faixaEtaria();
     }
 }
