@@ -1,5 +1,7 @@
 package play.toys.api.controller;
 
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,8 @@ public class BrinquedoController {
     private BrinquedoRepository repository;
 
     @PostMapping
-    public void cadastrarBrinquedo(@RequestBody DadosDoBrinquedo dados) {
+    @Transactional
+    public void cadastrarBrinquedo(@RequestBody @Valid DadosDoBrinquedo dados) {
         repository.save(new Brinquedo(dados));
     }
 }
