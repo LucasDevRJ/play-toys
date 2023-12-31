@@ -5,11 +5,11 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import play.toys.api.brinquedo.Brinquedo;
 import play.toys.api.brinquedo.BrinquedoRepository;
 import play.toys.api.brinquedo.DadosDoBrinquedo;
-
 
 @RestController
 @RequestMapping("brinquedos")
@@ -25,7 +25,7 @@ public class BrinquedoController {
     }
 
     @GetMapping
-    public Page<DadosDoBrinquedo> listarBrinquedos(Pageable paginacao) {
+    public Page<DadosDoBrinquedo> listarBrinquedos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosDoBrinquedo::new);
     }
 }
