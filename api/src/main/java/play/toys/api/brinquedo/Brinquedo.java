@@ -38,7 +38,7 @@ public class Brinquedo {
         this.faixaEtaria = dados.faixaEtaria();
     }
 
-    public void atualizarInformacoes(DadosDoBrinquedo dados) {
+    public void atualizarInformacoes(DadosAtualizadosDoBrinquedo dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
         } else if (dados.preco() != null) {

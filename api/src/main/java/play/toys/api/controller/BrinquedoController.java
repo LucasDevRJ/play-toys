@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import play.toys.api.brinquedo.Brinquedo;
 import play.toys.api.brinquedo.BrinquedoRepository;
+import play.toys.api.brinquedo.DadosAtualizadosDoBrinquedo;
 import play.toys.api.brinquedo.DadosDoBrinquedo;
 
 @RestController
@@ -31,7 +32,7 @@ public class BrinquedoController {
 
     @PutMapping
     @Transactional
-    public void atualizarBrinquedo(@RequestBody @Valid DadosDoBrinquedo dados) {
+    public void atualizarBrinquedo(@RequestBody @Valid DadosAtualizadosDoBrinquedo dados) {
         var brinquedo = repository.getReferenceById(dados.id());
         brinquedo.atualizarInformacoes(dados);
     }
