@@ -37,4 +37,22 @@ public class Brinquedo {
         this.cor = dados.cor();
         this.faixaEtaria = dados.faixaEtaria();
     }
+
+    public void atualizarInformacoes(DadosDoBrinquedo dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        } else if (dados.preco() != null) {
+            this.preco = dados.preco();
+        } else if (dados.descricao() != null) {
+            this.descricao = dados.descricao();
+        } else if (dados.modelo() != null) {
+            this.modelo = dados.modelo();
+        } else if (dados.categoria() != null) {
+            this.categoria = dados.categoria();
+        } else if (dados.cor() != null) {
+            this.cor = dados.cor();
+        } else if (dados.faixaEtaria() != null) {
+            this.faixaEtaria = dados.faixaEtaria();
+        }
+    }
 }

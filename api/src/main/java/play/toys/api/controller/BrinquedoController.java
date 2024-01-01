@@ -28,4 +28,11 @@ public class BrinquedoController {
     public Page<DadosDoBrinquedo> listarBrinquedos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosDoBrinquedo::new);
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizarBrinquedo(@RequestBody @Valid DadosDoBrinquedo dados) {
+        var brinquedo = repository.getReferenceById(dados.id());
+        brinquedo.atualizarInformacoes(dados);
+    }
 }
