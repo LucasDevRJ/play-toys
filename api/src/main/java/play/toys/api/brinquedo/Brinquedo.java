@@ -26,7 +26,7 @@ public class Brinquedo {
     private String categoria;
     private String cor;
     private String faixaEtaria;
-    private boolean ativo;
+    private Boolean ativo;
 
     public Brinquedo(DadosDoBrinquedo dados) {
         this.nome = dados.nome();
@@ -55,6 +55,8 @@ public class Brinquedo {
             this.cor = dados.cor();
         } else if (dados.faixaEtaria() != null) {
             this.faixaEtaria = dados.faixaEtaria();
+        } else if (dados.ativo().equals(true) || dados.ativo().equals(false)) {
+            this.ativo = dados.ativo();
         }
     }
 

@@ -27,7 +27,7 @@ public class BrinquedoController {
 
     @GetMapping
     public Page<DadosDoBrinquedo> listarBrinquedos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        return repository.findAll(paginacao).map(DadosDoBrinquedo::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosDoBrinquedo::new);
     }
 
     @PutMapping
@@ -40,12 +40,6 @@ public class BrinquedoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
-
-    @DeleteMapping("/{id}")
-    @Transactional
-    public void desativar(@PathVariable Long id) {
         var brinquedo = repository.getReferenceById(id);
         brinquedo.desativar();
     }

@@ -17,11 +17,12 @@ public record DadosAtualizadosDoBrinquedo(
         String marca,
         String categoria,
         String cor,
-        String faixaEtaria) {
+        String faixaEtaria,
+        Boolean ativo) {
 
         public DadosAtualizadosDoBrinquedo(Brinquedo brinquedo) {
                 this(brinquedo.getId(), brinquedo.getNome(), brinquedo.getPreco(), brinquedo.getDescricao(), brinquedo.getModelo(),
                         brinquedo.getCategoria(), brinquedo.getCategoria(), brinquedo.getCor(),
-                        brinquedo.getFaixaEtaria());
+                        brinquedo.getFaixaEtaria(), brinquedo.getAtivo());
         }
 }
