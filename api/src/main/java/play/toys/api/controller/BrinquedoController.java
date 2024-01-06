@@ -36,4 +36,10 @@ public class BrinquedoController {
         var brinquedo = repository.getReferenceById(dados.id());
         brinquedo.atualizarInformacoes(dados);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
