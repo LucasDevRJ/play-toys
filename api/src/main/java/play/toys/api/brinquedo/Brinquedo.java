@@ -57,4 +57,8 @@ public class Brinquedo {
             this.faixaEtaria = dados.faixaEtaria();
         }
     }
+
+    public void desativar() {
+        this.ativo = false;
+    }
 }

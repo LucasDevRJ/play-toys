@@ -42,4 +42,11 @@ public class BrinquedoController {
     public void excluir(@PathVariable Long id) {
         repository.deleteById(id);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void desativar(@PathVariable Long id) {
+        var brinquedo = repository.getReferenceById(id);
+        brinquedo.desativar();
+    }
 }
